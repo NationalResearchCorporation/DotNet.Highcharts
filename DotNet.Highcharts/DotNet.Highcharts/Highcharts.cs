@@ -321,7 +321,7 @@ namespace DotNet.Highcharts
         public string GetOptions()
         {
             StringBuilder options = new StringBuilder();
-            options.Append(_Chart != null ? "chart: {{ renderTo:'{0}', {1} }}".FormatWith(ContainerName, JsonSerializer.Serialize(_Chart, false)) : "chart: {{ renderTo:'{0}' }}".FormatWith(ContainerName));
+            options.Append(_Chart != null ? "{ chart: {{ renderTo:'{0}', {1} }}".FormatWith(ContainerName, JsonSerializer.Serialize(_Chart, false)) : "chart: {{ renderTo:'{0}' }}".FormatWith(ContainerName));
 
             if (_Credits != null)
             {
@@ -435,116 +435,98 @@ namespace DotNet.Highcharts
 
         public string GetJsonOptions()
         {
-            StringBuilder options = new StringBuilder();
+            StringBuilder options = new StringBuilder("{");
             options.Append(_Chart != null ? "\"chart\": {{ \"renderTo\":\"{0}\", {1} }}".FormatWith(ContainerName, HighchartsJsonSerializer.Serialize(_Chart, false)) : "\"chart\": {{ \"renderTo\":\"{0}\" }}".FormatWith(ContainerName));
 
             if (_Credits != null)
-            {
-                options.AppendLine(", ");
-                options.Append("\"credits\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Credits)), 2);
+            {                
+                options.Append(",\"credits\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Credits)), 0);
             }
 
             if (_Labels != null)
-            {
-                options.AppendLine(", ");
-                options.Append("\"labels\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Labels)), 2);
+            {             
+                options.Append(",\"labels\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Labels)), 0);
             }
 
             if (_Legend != null)
-            {
-                options.AppendLine(", ");
-                options.Append("\"legend\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Legend)), 2);
+            {             
+                options.Append(",\"legend\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Legend)), 0);
             }
 
             if (_Loading != null)
-            {
-                options.AppendLine(", ");
-                options.Append("\"loading\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Loading)), 2);
+            {             
+                options.Append(",\"loading\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Loading)), 0);
             }
 
             if (_PlotOptions != null)
-            {
-                options.AppendLine(", ");
-                options.Append("\"plotOptions\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_PlotOptions)), 2);
+            {             
+                options.Append(",\"plotOptions\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_PlotOptions)), 0);
             }
 
             if (_Pane != null)
-            {
-                options.AppendLine(", ");
-                options.Append("\"pane\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Pane)), 2);
+            {             
+                options.Append(",\"pane\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Pane)), 0);
             }
 
             if (_PaneArray != null)
-            {
-                options.AppendLine(", ");
-                options.Append("\"pene\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_PaneArray)), 2);
+            {             
+                options.Append(",\"pene\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_PaneArray)), 0);
             }
 
             if (_Subtitle != null)
-            {
-                options.AppendLine(", ");
-                options.Append("\"subtitle\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Subtitle)), 2);
+            {             
+                options.Append(",\"subtitle\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Subtitle)), 0);
             }
 
             if (_Title != null)
-            {
-                options.AppendLine(", ");
-                options.Append("\"title\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Title)), 2);
+            {             
+                options.Append(",\"title\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Title)), 0);
             }
 
             if (_Tooltip != null)
-            {
-                options.AppendLine(", ");
-                options.Append("\"tooltip\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Tooltip)), 2);
+            {             
+                options.Append(",\"tooltip\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Tooltip)), 0);
             }
 
             if (_XAxis != null)
-            {
-                options.AppendLine(", ");
-                options.Append("\"xAxis\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_XAxis)), 2);
+            {             
+                options.Append(",\"xAxis\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_XAxis)), 0);
             }
 
             if (_XAxisArray != null)
-            {
-                options.AppendLine(", ");
-                options.Append("\"xAxis\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_XAxisArray)), 2);
+            {             
+                options.Append(",\"xAxis\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_XAxisArray)), 0);
             }
 
             if (_YAxis != null)
-            {
-                options.AppendLine(", ");
-                options.Append("\"yAxis\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_YAxis)), 2);
+            {             
+                options.Append(",\"yAxis\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_YAxis)), 0);
             }
             else if (_YAxisArray != null)
-            {
-                options.AppendLine(", ");
-                options.Append("\"yAxis\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_YAxisArray)), 2);
+            {             
+                options.Append(",\"yAxis\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_YAxisArray)), 0);
             }
 
             if (_Exporting != null)
-            {
-                options.AppendLine(", ");
-                options.Append("\"exporting\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Exporting)), 2);
+            {             
+                options.Append(",\"exporting\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Exporting)), 0);
             }
 
             if (_Navigation != null)
-            {
-                options.AppendLine(", ");
-                options.Append("\"navigation\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Navigation)), 2);
+            {             
+                options.Append(",\"navigation\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Navigation)), 0);
             }
 
             if (_Series != null)
-            {
-                options.AppendLine(", ");
-                options.Append("\"series\": [{0}]".FormatWith(HighchartsJsonSerializer.Serialize(_Series)), 2);
+            {             
+                options.Append(",\"series\": [{0}]".FormatWith(HighchartsJsonSerializer.Serialize(_Series)), 0);
             }
             else if (_SeriesArray != null)
-            {
-                options.AppendLine(", ");
-                options.Append("\"series\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_SeriesArray)), 2);
+            {             
+                options.Append(",\"series\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_SeriesArray)), 0);
             }
-            options.AppendLine();
 
+            options.Append("}");
             return options.ToString();
         }
     }
