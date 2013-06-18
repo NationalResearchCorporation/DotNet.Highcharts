@@ -432,5 +432,120 @@ namespace DotNet.Highcharts
 
             return options.ToString();
         }
+
+        public string GetJsonOptions()
+        {
+            StringBuilder options = new StringBuilder();
+            options.Append(_Chart != null ? "\"chart\": {{ \"renderTo\":\"{0}\", {1} }}".FormatWith(ContainerName, HighchartsJsonSerializer.Serialize(_Chart, false)) : "\"chart\": {{ \"renderTo\":\"{0}\" }}".FormatWith(ContainerName));
+
+            if (_Credits != null)
+            {
+                options.AppendLine(", ");
+                options.Append("\"credits\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Credits)), 2);
+            }
+
+            if (_Labels != null)
+            {
+                options.AppendLine(", ");
+                options.Append("\"labels\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Labels)), 2);
+            }
+
+            if (_Legend != null)
+            {
+                options.AppendLine(", ");
+                options.Append("\"legend\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Legend)), 2);
+            }
+
+            if (_Loading != null)
+            {
+                options.AppendLine(", ");
+                options.Append("\"loading\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Loading)), 2);
+            }
+
+            if (_PlotOptions != null)
+            {
+                options.AppendLine(", ");
+                options.Append("\"plotOptions\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_PlotOptions)), 2);
+            }
+
+            if (_Pane != null)
+            {
+                options.AppendLine(", ");
+                options.Append("\"pane\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Pane)), 2);
+            }
+
+            if (_PaneArray != null)
+            {
+                options.AppendLine(", ");
+                options.Append("\"pene\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_PaneArray)), 2);
+            }
+
+            if (_Subtitle != null)
+            {
+                options.AppendLine(", ");
+                options.Append("\"subtitle\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Subtitle)), 2);
+            }
+
+            if (_Title != null)
+            {
+                options.AppendLine(", ");
+                options.Append("\"title\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Title)), 2);
+            }
+
+            if (_Tooltip != null)
+            {
+                options.AppendLine(", ");
+                options.Append("\"tooltip\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Tooltip)), 2);
+            }
+
+            if (_XAxis != null)
+            {
+                options.AppendLine(", ");
+                options.Append("\"xAxis\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_XAxis)), 2);
+            }
+
+            if (_XAxisArray != null)
+            {
+                options.AppendLine(", ");
+                options.Append("\"xAxis\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_XAxisArray)), 2);
+            }
+
+            if (_YAxis != null)
+            {
+                options.AppendLine(", ");
+                options.Append("\"yAxis\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_YAxis)), 2);
+            }
+            else if (_YAxisArray != null)
+            {
+                options.AppendLine(", ");
+                options.Append("\"yAxis\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_YAxisArray)), 2);
+            }
+
+            if (_Exporting != null)
+            {
+                options.AppendLine(", ");
+                options.Append("\"exporting\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Exporting)), 2);
+            }
+
+            if (_Navigation != null)
+            {
+                options.AppendLine(", ");
+                options.Append("\"navigation\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_Navigation)), 2);
+            }
+
+            if (_Series != null)
+            {
+                options.AppendLine(", ");
+                options.Append("\"series\": [{0}]".FormatWith(HighchartsJsonSerializer.Serialize(_Series)), 2);
+            }
+            else if (_SeriesArray != null)
+            {
+                options.AppendLine(", ");
+                options.Append("\"series\": {0}".FormatWith(HighchartsJsonSerializer.Serialize(_SeriesArray)), 2);
+            }
+            options.AppendLine();
+
+            return options.ToString();
+        }
     }
 }

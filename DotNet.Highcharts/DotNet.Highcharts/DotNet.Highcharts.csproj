@@ -97,6 +97,7 @@
     <Compile Include="Helpers\GlobalOptions.cs" />
     <Compile Include="Helpers\Position.cs" />
     <Compile Include="Container.cs" />
+    <Compile Include="HighchartsJsonSerializer.cs" />
     <Compile Include="JsonSerializer.cs">
       <SubType>Code</SubType>
     </Compile>

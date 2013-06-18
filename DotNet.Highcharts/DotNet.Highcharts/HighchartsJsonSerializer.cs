@@ -1,26 +1,26 @@
-﻿using System;
+﻿using DotNet.Highcharts.Attributes;
+using DotNet.Highcharts.Enums;
+using DotNet.Highcharts.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using DotNet.Highcharts.Attributes;
-using DotNet.Highcharts.Helpers;
-using System.Globalization;
-using DotNet.Highcharts.Enums;
 
 namespace DotNet.Highcharts
 {
-    public class JsonSerializer
+    class HighchartsJsonSerializer
     {
-        const string JSON_STRING_ARRAY = "['{0}']";
+        const string JSON_STRING_ARRAY = "[\"{0}\"]";
         const string JSON_NUMBER_ARRAY = "[{0}]";
         const string JSON_NUMBER_MULTI_ARRAY = "[{0}, {1}]";
         const string JSON_OBJECT_FORMAT = "{{ {0} }}";
-        const string JSON_PROPERTY_WITH_VALUE_FORMAT = "{0}: {1}";
-        const string JSON_STRING_FORMAT = "'{0}'";
+        const string JSON_PROPERTY_WITH_VALUE_FORMAT = "\"{0}\": {1}";
+        const string JSON_STRING_FORMAT = "\"{0}\"";
         const string JSON_DEFAULT_FORMAT = "{0}";
-        const string JSON_DATE_FORMAT = "Date.parse('{0}')";
+        const string JSON_DATE_FORMAT = "Date.parse(\"{0}\")";
         const string NULL_STRING = "null";
 
         public static string Serialize<T>(T obj) where T : class { return Serialize(obj, true); }
